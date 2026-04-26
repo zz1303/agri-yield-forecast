@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import os
 import joblib
 from src.preprocess import DataPreprocessor
 import matplotlib.pyplot as plt
@@ -27,7 +28,7 @@ def get_shap_values(_model, X_data, sample_size=200):
     
     return explainer, X_sample, shap_values
 
-X_train = joblib.load('models/X_train.pkl')
+X_train = joblib.load(os.path.join(os.path.dirname(__file__), "models", "X_train.pkl"))
 
 # 应用主入口
 COLUMN_CONFIG = {
@@ -42,8 +43,8 @@ COLUMN_CONFIG = {
 }
 
 # 初始化预测器（使用正确的模型和特征路径）
-MODEL_PATH = "models/yield_model.pkl"  # 正确路径（从根目录开始）
-FEATURE_PATH = "models/feature_columns.pkl"
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "models", "yield_model.pkl")
+FEATURE_PATH = os.path.join(os.path.dirname(__file__), "models", "feature_columns.pkl")
 
 predictor = YieldPredictor(model_path=MODEL_PATH, feature_path=FEATURE_PATH)
 
