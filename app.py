@@ -405,7 +405,7 @@ elif menu == "模型测试与评估":
     
     try:
         # 加载数据（抽样10%加速测试）
-        df = pd.read_csv(r"C:\Users\UESTC\Desktop\agri_yield_forecast\data\example_data.csv")
+        df = pd.read_csv(os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "example_data.csv"))
         test_data = df.sample(frac=0.1, random_state=42)
         
         # 检查列名（调试用，可注释）
