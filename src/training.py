@@ -56,7 +56,7 @@ class ModelTrainer:
 
 if __name__ == "__main__":
     # 1. 配置路径
-    DATA_PATH = "../data/example_data.csv"
+    DATA_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "example_data.csv")
     MODEL_PATH = "../models/yield_model.pkl"
     
     # 2. 确保模型保存的文件夹存在
