@@ -37,7 +37,7 @@ def load_crop_data():
     """
     加载原始数据并返回DataFrame
     """
-    data_path = os.path.join(os.path.dirname(__file__), "data", "example_data.csv")
+    data_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "example_data.csv")
     df = pd.read_csv(data_path)
     return df
 
